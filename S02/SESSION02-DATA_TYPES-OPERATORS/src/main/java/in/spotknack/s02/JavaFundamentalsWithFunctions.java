@@ -1,7 +1,6 @@
 package main.java.in.spotknack.s02;
 
 public class JavaFundamentalsWithFunctions {
-
     public static void main(String[] args) {
         System.out.println("--- Java Fundamentals Demo ---");
 
@@ -32,6 +31,7 @@ public class JavaFundamentalsWithFunctions {
         
         // Non-Primitive (Reference) Type
         String myString = "Hello, Functions!";
+        int[] arr = {1, 2, 3, 4, 5};
         System.out.println("\nNon-Primitive Type:");
         System.out.println("String: " + myString);
     }
