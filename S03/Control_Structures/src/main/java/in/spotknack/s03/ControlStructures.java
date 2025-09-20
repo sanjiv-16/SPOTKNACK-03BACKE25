@@ -9,16 +9,17 @@ public class ControlStructures {
 
     /**
      * Demonstrates the use of a simple if-else statement.
+     *
      * @param score The student's score.
      */
     public void demonstrateIfElse(int score) {
         System.out.println("\n--- Demonstrating if-else ---");
         char grade;
-        if (score >= 90) {
+        if(score >= 90) {
             grade = 'A';
-        } else if (score >= 80) {
+        } else if(score >= 80) {
             grade = 'B';
-        } else if (score >= 70) {
+        } else if(score >= 70) {
             grade = 'C';
         } else {
             grade = 'F';
@@ -28,12 +29,13 @@ public class ControlStructures {
 
     /**
      * Demonstrates the use of a switch statement.
+     *
      * @param dayOfWeek An integer representing the day (1-7).
      */
     public void demonstrateSwitch(int dayOfWeek) {
         System.out.println("\n--- Demonstrating switch ---");
         String dayName;
-        switch (dayOfWeek) {
+        switch(dayOfWeek) {
             case 1:
                 dayName = "Monday";
                 break;
@@ -68,7 +70,7 @@ public class ControlStructures {
     public void demonstrateForLoop() {
         System.out.println("\n--- Demonstrating for loop ---");
         System.out.println("Counting from 0 to 4:");
-        for (int i = 0; i < 5; i++) {
+        for(int i = 0; i < 5; i++) {
             System.out.println("Count: " + i);
         }
     }
@@ -79,7 +81,7 @@ public class ControlStructures {
     public void demonstrateWhileLoop() {
         System.out.println("\n--- Demonstrating while loop ---");
         int countdown = 3;
-        while (countdown > 0) {
+        while(countdown > 0) {
             System.out.println("T-minus " + countdown);
             countdown--;
         }
@@ -95,7 +97,7 @@ public class ControlStructures {
         do {
             System.out.println("This will run at least once. Current count: " + count);
             count++;
-        } while (count < 0);
+        } while(count < 0);
     }
 
     /**
@@ -105,16 +107,16 @@ public class ControlStructures {
         System.out.println("\n--- Demonstrating break and continue ---");
 
         System.out.println("Loop with 'break' (stops at 5):");
-        for (int i = 1; i <= 10; i++) {
-            if (i == 5) {
+        for(int i = 1; i <= 10; i++) {
+            if(i == 5) {
                 break; // Exits the loop completely
             }
             System.out.println("i is " + i);
         }
 
         System.out.println("\nLoop with 'continue' (skips 5):");
-        for (int i = 1; i <= 10; i++) {
-            if (i == 5) {
+        for(int i = 1; i <= 10; i++) {
+            if(i == 5) {
                 continue; // Skips to the next iteration
             }
             System.out.println("i is " + i);
@@ -128,9 +130,9 @@ public class ControlStructures {
         System.out.println("\n--- Demonstrating nested loops ---");
         System.out.println("Creating a 4x4 box of asterisks:");
         // The outer loop handles the rows
-        for (int i = 0; i < 4; i++) {
+        for(int i = 0; i < 4; i++) {
             // The inner loop handles the columns
-            for (int j = 0; j < 4; j++) {
+            for(int j = 0; j < 4; j++) {
                 System.out.print("* ");
             }
             System.out.println(); // Move to the next line after each row
@@ -145,18 +147,18 @@ public class ControlStructures {
 
         demo.demonstrateIfElse(85);
         demo.demonstrateIfElse(95);
-
-        demo.demonstrateSwitch(3);
-        demo.demonstrateSwitch(8);
-
-        demo.demonstrateForLoop();
-
-        demo.demonstrateWhileLoop();
-
-        demo.demonstrateDoWhileLoop();
-
-        demo.demonstrateBreakAndContinue();
-
-        demo.demonstrateNestedLoops();
+//
+//        demo.demonstrateSwitch(3);
+//        demo.demonstrateSwitch(8);
+//
+//        demo.demonstrateForLoop();
+//
+//        demo.demonstrateWhileLoop();
+//
+//        demo.demonstrateDoWhileLoop();
+//
+//        demo.demonstrateBreakAndContinue();
+//
+//        demo.demonstrateNestedLoops();
     }
 }
