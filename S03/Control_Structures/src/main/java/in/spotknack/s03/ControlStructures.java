@@ -34,33 +34,16 @@ public class ControlStructures {
      */
     public void demonstrateSwitch(int dayOfWeek) {
         System.out.println("\n--- Demonstrating switch ---");
-        String dayName;
-        switch(dayOfWeek) {
-            case 1:
-                dayName = "Monday";
-                break;
-            case 2:
-                dayName = "Tuesday";
-                break;
-            case 3:
-                dayName = "Wednesday";
-                break;
-            case 4:
-                dayName = "Thursday";
-                break;
-            case 5:
-                dayName = "Friday";
-                break;
-            case 6:
-                dayName = "Saturday";
-                break;
-            case 7:
-                dayName = "Sunday";
-                break;
-            default:
-                dayName = "Invalid day";
-                break;
-        }
+        String dayName = switch(dayOfWeek) {
+            case 1 -> "Monday";
+            case 2 -> "Tuesday";
+            case 3 -> "Wednesday";
+            case 4 -> "Thursday";
+            case 5 -> "Friday";
+            case 6 -> "Saturday";
+            case 7 -> "Sunday";
+            default -> null;
+        };
         System.out.println("The day corresponding to " + dayOfWeek + " is " + dayName);
     }
 
@@ -97,7 +80,7 @@ public class ControlStructures {
         do {
             System.out.println("This will run at least once. Current count: " + count);
             count++;
-        } while(count < 0);
+        } while(count <= 0);
     }
 
     /**
@@ -145,8 +128,9 @@ public class ControlStructures {
     public static void main(String[] args) {
         ControlStructures demo = new ControlStructures();
 
-        demo.demonstrateIfElse(85);
-        demo.demonstrateIfElse(95);
+
+//        demo.demonstrateIfElse(85);
+//        demo.demonstrateIfElse(95);
 //
 //        demo.demonstrateSwitch(3);
 //        demo.demonstrateSwitch(8);
@@ -154,11 +138,11 @@ public class ControlStructures {
 //        demo.demonstrateForLoop();
 //
 //        demo.demonstrateWhileLoop();
+///
+       // demo.demonstrateDoWhileLoop();
 //
-//        demo.demonstrateDoWhileLoop();
+        // demo.demonstrateBreakAndContinue();
 //
-//        demo.demonstrateBreakAndContinue();
-//
-//        demo.demonstrateNestedLoops();
+        demo.demonstrateNestedLoops();
     }
 }
