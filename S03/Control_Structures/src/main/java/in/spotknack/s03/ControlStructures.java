@@ -34,6 +34,7 @@ public class ControlStructures {
      */
     public void demonstrateSwitch(int dayOfWeek) {
         System.out.println("\n--- Demonstrating switch ---");
+
         String dayName = switch(dayOfWeek) {
             case 1 -> "Monday";
             case 2 -> "Tuesday";
@@ -44,6 +45,7 @@ public class ControlStructures {
             case 7 -> "Sunday";
             default -> null;
         };
+
         System.out.println("The day corresponding to " + dayOfWeek + " is " + dayName);
     }
 
@@ -103,6 +105,8 @@ public class ControlStructures {
                 continue; // Skips to the next iteration
             }
             System.out.println("i is " + i);
+
+
         }
     }
 
@@ -141,8 +145,8 @@ public class ControlStructures {
 ///
        // demo.demonstrateDoWhileLoop();
 //
-        // demo.demonstrateBreakAndContinue();
+        demo.demonstrateBreakAndContinue();
 //
-        demo.demonstrateNestedLoops();
+        //demo.demonstrateNestedLoops();
     }
 }

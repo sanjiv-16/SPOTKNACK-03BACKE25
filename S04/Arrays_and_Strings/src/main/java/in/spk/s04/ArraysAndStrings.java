@@ -1,6 +1,7 @@
 package main.java.in.spk.s04;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class ArraysAndStrings {
 
@@ -34,20 +35,23 @@ public class ArraysAndStrings {
 
     /**
      * Demonstrates the creation, initialization, and iteration of a 1D array.
+     * 1,2,3,4,5
+     * 0,1,2,3,4
      */
     private void demonstrateOneDArray() {
         int[] scores = new int[4];
+
         scores[0] = 85;
         scores[1] = 92;
         scores[2] = 78;
         scores[3] = 95;
-        System.out.println("Array 'scores' created with size 4. Accessing index 1: " + scores[1]);
 
+        System.out.println("Array 'scores' created with size 4. Accessing index 1: " + scores[1]);
         String[] fruits = {"Apple", "Banana", "Cherry", "Date"};
         System.out.println("Array 'fruits' created. Size: " + fruits.length);
 
         System.out.println("\nIterating 'fruits' (Standard For Loop):");
-        for (int i = 0; i < fruits.length; i++) {
+        for (int i = 0; i < fruits.length-1; i++) {
             System.out.println("Index " + i + ": " + fruits[i]);
         }
 
@@ -62,6 +66,10 @@ public class ArraysAndStrings {
 
     /**
      * Demonstrates the creation, initialization, and iteration of a 2D array (matrix).
+     *                      j=0 j=1 j=2
+     *                 i=0 {10, 20, 30},
+     *                 i=1 {40, 50, 60},
+     *                 i=2 {70, 80, 90}
      */
     private void demonstrateTwoDArray() {
         int[][] matrix = {
@@ -70,8 +78,9 @@ public class ArraysAndStrings {
                 {70, 80, 90}
         };
 
+
         System.out.println("2D Array dimensions: " + matrix.length + " rows x " + matrix[0].length + " columns");
-        System.out.println("Accessing element at [1][2]: " + matrix[1][2]);
+        System.out.println("Accessing element at [0][1]: " + matrix[0][1]);
 
         System.out.println("\nMatrix elements:");
         for (int i = 0; i < matrix.length; i++) {
@@ -88,6 +97,12 @@ public class ArraysAndStrings {
                 {7}
         };
         System.out.println("Row 1 length: " + jaggedArray[1].length);
+        for (int i = 0; i < jaggedArray.length; i++) {
+            for (int j = 0; j < jaggedArray[i].length; j++) {
+                System.out.print(jaggedArray[i][j] + "\t");
+            }
+            System.out.println();
+        }
     }
 
     /**
