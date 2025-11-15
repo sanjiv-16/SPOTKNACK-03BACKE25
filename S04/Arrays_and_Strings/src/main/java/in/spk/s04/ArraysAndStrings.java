@@ -31,6 +31,10 @@ public class ArraysAndStrings {
         System.out.println("--- 6. StringBuilder vs. StringBuffer ---\n");
         explainer.demonstrateStringBuilderAndBuffer();
         System.out.println("\n" + "=".repeat(80));
+
+
+
+
     }
 
     /**
@@ -173,8 +177,8 @@ public class ArraysAndStrings {
         System.out.println("9. Starts with 'Java'? " + combined.startsWith("Java"));
 
         // 10. split(regex)
-        String colors = "Red,Green,Blue,Yellow";
-        String[] colorArray = colors.split(",");
+        String colors = "Red;Green,Blue,Yellow";
+        String[] colorArray = colors.split(";");
         System.out.println("10. Split into array: " + Arrays.toString(colorArray));
     }
 
