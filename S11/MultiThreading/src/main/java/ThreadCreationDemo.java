@@ -27,16 +27,17 @@ class MyRunnable implements Runnable {
 public class ThreadCreationDemo {
     public static void main(String[] args) throws InterruptedException {
 
-
-
-        MyThread t1 = new MyThread();
-        t1.start();
+//        MyThread t1 = new MyThread();
+//        t1.start();
 
         MyRunnable runnable = new MyRunnable();
         Thread t2 = new Thread(runnable);
+        t2.setName("Runnable Thread");
         t2.start();
-
-        Thread t3 = new Thread(() -> System.out.println("Running via Runnable(Lambda): Much cleaner!"));
+//
+        Thread t3 = new Thread(() -> {
+            System.out.println("Running via Runnable(Lambda): Much cleaner!");
+        });
         t3.start();
 
         //t1.join();

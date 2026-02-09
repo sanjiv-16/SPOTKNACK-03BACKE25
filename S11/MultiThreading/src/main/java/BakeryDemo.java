@@ -5,9 +5,10 @@ class CakeShop {
     private final int CAPACITY = 3;
 
     // Baker bakes a full batch of 3
-    public synchronized void bakeBatch() {
+    public synchronized void bakeBatch() throws InterruptedException {
         while(cakeCount > 0) { // Wait until shelf is completely empty
             try {
+                System.out.println("Baker: Waiting for shelf to be empty...");
                 wait();
             } catch(InterruptedException e) {
             }
@@ -17,6 +18,7 @@ class CakeShop {
         while(cakeCount < CAPACITY) {
             cakeCount++;
             System.out.println("Baker: Added cake #" + cakeCount);
+            Thread.sleep(2000);
         }
 
         System.out.println("Baker: Batch ready! Going to rest.");
@@ -24,9 +26,10 @@ class CakeShop {
     }
 
     // Consumers eat until shelf is empty
-    public synchronized void eatCake(String customerName) {
+    public synchronized void buyCake(String customerName) {
         while(cakeCount == 0) { // Wait if no cakes are available
             try {
+                System.out.println(customerName + ": Waiting for a cake...");
                 wait();
             } catch(InterruptedException e) {
             }
@@ -48,13 +51,19 @@ public class BakeryDemo {
 
         // The Baker: Bakes 2 batches total
         Thread baker = new Thread(() -> {
-            for(int i = 0; i < 2; i++) shop.bakeBatch();
+            for(int i = 0; i < 2; i++) {
+                try {
+                    shop.bakeBatch();
+                } catch(InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
         });
 
         // The Customers: Shared goal to eat the cakes
         Thread customer1 = new Thread(() -> {
-            for(int i = 0; i < 3; i++) {
-                shop.eatCake("Customer 1");
+            for(int i = 0; i < 9; i++) {
+                shop.buyCake("Customer 1");
                 try {
                     Thread.sleep(1000);
                 } catch(InterruptedException e) {
@@ -63,19 +72,19 @@ public class BakeryDemo {
             }
         });
 
-        Thread customer2 = new Thread(() -> {
-            for(int i = 0; i < 3; i++) {
-                shop.eatCake("Customer 2");
-                try {
-                    Thread.sleep(1000);
-                } catch(InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        });
+//        Thread customer2 = new Thread(() -> {
+//            for(int i = 0; i < 3; i++) {
+//                shop.buyCake("Customer 2");
+//                try {
+//                    Thread.sleep(1000);
+//                } catch(InterruptedException e) {
+//                    throw new RuntimeException(e);
+//                }
+//            }
+//        });
 
         baker.start();
         customer1.start();
-        customer2.start();
+        //customer2.start();
     }
 }
