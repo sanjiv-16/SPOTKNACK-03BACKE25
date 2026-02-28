@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Scanner;
 
 public class DatabaseDemo {
 
@@ -33,28 +34,28 @@ public class DatabaseDemo {
                 stmt.execute(CREATE_TABLE_SQL);
                 System.out.println("Table 'students' is ready.");
             }
-
-            try (PreparedStatement pstmt = conn.prepareStatement(INSERT_STUDENT_SQL)) {
-
-                // Student 1
-                pstmt.setString(1, "Alice");
-                pstmt.setString(2, "A+");
-                pstmt.addBatch();
-
-                // Student 2
-                pstmt.setString(1, "Bob");
-                pstmt.setString(2, "B");
-                pstmt.addBatch();
-
-                // Student 3
-                pstmt.setString(1, "Charlie");
-                pstmt.setString(2, "A");
-                pstmt.addBatch();
-
-                int[] rowsInserted = pstmt.executeBatch();
-                System.out.println("Batch inserted " + rowsInserted.length + " students.");
-            }
-
+//
+//            try (PreparedStatement pstmt = conn.prepareStatement(INSERT_STUDENT_SQL)) {
+//
+//                // Student 1
+//                pstmt.setString(1, "Alice");
+//                pstmt.setString(2, "A+");
+//                pstmt.addBatch();
+//
+//                // Student 2
+//                pstmt.setString(1, "Bob");
+//                pstmt.setString(2, "B");
+//                pstmt.addBatch();
+//
+//                // Student 3
+//                pstmt.setString(1, "Charlie");
+//                pstmt.setString(2, "A");
+//                pstmt.addBatch();
+//
+//                int[] rowsInserted = pstmt.executeBatch();
+//                System.out.println("Batch inserted " + rowsInserted.length + " students.");
+//            }
+//
             // 3. DELETE: Remove a specific entry
             try (PreparedStatement pstmt = conn.prepareStatement(DELETE_STUDENT_SQL)) {
                 pstmt.setString(1, "Bob");
